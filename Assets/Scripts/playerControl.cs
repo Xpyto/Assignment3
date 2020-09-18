@@ -19,7 +19,7 @@ public class NewBehaviourScript : MonoBehaviour
 
     void Update()
     {   
-        if(hit == true){
+        if(hit){
             StartCoroutine(Walking());
         }
     }   

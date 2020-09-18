@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class onCollision : MonoBehaviour
+public class pelletCollision : MonoBehaviour
 {
     AudioSource eat;
     
