@@ -14,7 +14,7 @@ public class onCollision : MonoBehaviour
     }
 
     // Update is called once per frame
-    void onCollisionEnter(Collision collision)
+    void onTriggerEnter(Collision collision)
     {
         eat.Play();
         gameObject.SetActive(false);

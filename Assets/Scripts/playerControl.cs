@@ -13,7 +13,7 @@ public class NewBehaviourScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void onCollisionEnter(Collision collision){
+    void onTriggerEnter(Collision collision){
         hit = true;
     }
 
