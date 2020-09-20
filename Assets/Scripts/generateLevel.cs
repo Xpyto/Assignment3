@@ -60,32 +60,26 @@ public class generateLevel : MonoBehaviour
         GenerateSprite(3,14,-4,180); 
 
         //Brute forced weird corners
-        GenerateSprite(3,13,-7,-90);
-        GenerateSprite(3,8,-6,-90);
-        GenerateSprite(3,19,-10,-90);
-        GenerateSprite(3,17,-12,-90);
-        GenerateSprite(3,14,-7,0);
-        GenerateSprite(3,19,-6,0);
-        GenerateSprite(3,8,-10,0);
-        GenerateSprite(3,10,-12,0);
-        GenerateSprite(3,8,-13,180);
-        GenerateSprite(3,19,-9,180);
-        GenerateSprite(3,7,-13,90);
-        GenerateSprite(3,19,-13,90);
-        GenerateSprite(3,8,-9,90);
-        GenerateSprite(3,11,-10,180);
-        GenerateSprite(3,11,-9,-90);
-        GenerateSprite(3,14,-10,180);
-        GenerateSprite(3,13,-10,90);
-        GenerateSprite(3,16,-10,90);
+        GenerateSprite(3,13,-7,-90);    GenerateSprite(3,8,-19,0);
+        GenerateSprite(3,8,-6,-90);     GenerateSprite(3,13,-24,0);
+        GenerateSprite(3,19,-10,-90);   GenerateSprite(3,19,-19,-90);
+        GenerateSprite(3,17,-12,-90);   GenerateSprite(3,14,-24,-90);
+        GenerateSprite(3,14,-7,0);      GenerateSprite(3,8,-18,90);
+        GenerateSprite(3,19,-6,0);      GenerateSprite(3,19,-22,90);
+        GenerateSprite(3,8,-10,0);      GenerateSprite(3,19,-18,180);
+        GenerateSprite(3,10,-12,0);     GenerateSprite(3,8,-22,180);
+        GenerateSprite(3,8,-13,180);    GenerateSprite(3,10,-16,90);
+        GenerateSprite(3,19,-9,180);    GenerateSprite(3,17,-16,180);
+        GenerateSprite(3,7,-13,90);     GenerateSprite(3,11,-19,180);
+        GenerateSprite(3,19,-13,90);    GenerateSprite(3,11,-18,-90);
+        GenerateSprite(3,8,-9,90);      GenerateSprite(3,14,-18,-90);
+        GenerateSprite(3,11,-10,180);   GenerateSprite(3,13,-18,0);
+        GenerateSprite(3,11,-9,-90);    GenerateSprite(3,16,-18,0);
+        GenerateSprite(3,14,-10,180);   GenerateSprite(3,16,-19,90);
+        GenerateSprite(3,13,-10,90);    GenerateSprite(3,14,-21,90);
+        GenerateSprite(3,16,-10,90);    GenerateSprite(3,13,-21,180);
         GenerateSprite(3,16,-9,0);
         GenerateSprite(3,20,-13,180);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     void GenerateSprite(int num,int i, int j,int rot){
@@ -222,6 +216,13 @@ public class generateLevel : MonoBehaviour
                      Instantiate(sprites[num],new Vector3(i,j,0),Quaternion.Euler(0,0,0));
                     }else if(i==5||i==11||i==17||i==20||i==25){
                     Instantiate(sprites[num],new Vector3(i,j,0), Quaternion.Euler(0,0,-90));
+                    }
+                }
+                if(j==-15){
+                    if(i==7||i==19){
+                        GenerateSprite(num,i,j,0);
+                    }else{
+                        GenerateSprite(num,i,j,-90);
                     }
                 }
             }
