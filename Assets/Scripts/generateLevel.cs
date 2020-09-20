@@ -43,7 +43,7 @@ public class generateLevel : MonoBehaviour
     public GameObject[] sprites;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         GenerateLevelup();
         GenerateLeveldown();
@@ -178,20 +178,32 @@ public class generateLevel : MonoBehaviour
                 j--;
             }
             if(num == 1){
-                if((i==0 && j==0)||(i==22&&j==-9)){
+                if(j==-19){
+                    if(i==0){
+                        GenerateSprite(num,i,j,0);
+                    }else if(i==5){
+                        GenerateSprite(num,i,j,180);
+                    }else if(i!=27){
+                        GenerateSprite(num,i,j,90);
+                    }else{
+                        GenerateSprite(num,i,j,-90);
+                    }
+                }else if(j==-28){
+                    if(i==0){
+                        GenerateSprite(num,i,j,90);
+                    }else{
+                        GenerateSprite(num,i,j,180);
+                    }
+                }else if(j==-15 && i==22){
                     GenerateSprite(num,i,j,0);
-                }else if((Mathf.Abs(i+j)==18)||(i==5 && j == -13)){
-                    Instantiate(sprites[num],new Vector3(i,j,0),Quaternion.Euler(0,0,180));
-                }else if(Mathf.Abs(i+j)==9){
-                    Instantiate(sprites[num],new Vector3(i,j,0), Quaternion.Euler(0,0,90));
                 }else{
-                    Instantiate(sprites[num],new Vector3(i,j,0),Quaternion.Euler(0,0,270));
+                    GenerateSprite(num,i,j,-90);
                 }
             }
         
 
             if(num == 2){
-                if(j==0 || j==-9 || j==-13){
+                if(j==-15 || j==-19 || j==-28){
                 Instantiate(sprites[num],new Vector3(i,j,0),Quaternion.Euler(0,0,90));
                  }else{
                 GenerateSprite(num,i,j,0);
@@ -199,29 +211,29 @@ public class generateLevel : MonoBehaviour
             }
 
             if(num ==3){
-                if(j==-2||j==-6){
+                if(j==-26||j==-22){
                     if(i==2||i==7||i==10||i==16||i==22){
-                     GenerateSprite(num,i,j,0);
-                    }else if(i==5||i==11||i==17||i==20||i==25){
-                    Instantiate(sprites[num],new Vector3(i,j,0), Quaternion.Euler(0,0,-90));
-                    }
-                }else if(j==-4||j==-7){
-                    if(i==2||i==7||i==10||i==16||i==22){
-                     Instantiate(sprites[num],new Vector3(i,j,0),Quaternion.Euler(0,0,90));
+                     GenerateSprite(num,i,j,90);
                     }else if(i==5||i==11||i==17||i==20||i==25){
                     Instantiate(sprites[num],new Vector3(i,j,0), Quaternion.Euler(0,0,180));
+                    }
+                }else if(j==-24||j==-21){
+                    if(i==2||i==7||i==10||i==16||i==22){
+                     Instantiate(sprites[num],new Vector3(i,j,0),Quaternion.Euler(0,0,0));
+                    }else if(i==5||i==11||i==17||i==20||i==25){
+                    Instantiate(sprites[num],new Vector3(i,j,0), Quaternion.Euler(0,0,-90));
                     }
                 }
             }
 
             if(num == 4){
-                if(j==-2||j==-4||j==-6||j==-7||j==-9||j==-10){
-                    if((j==-2&&(i==13||i==14))||((j==-7)&&(i==7||i==8||i==19||i==20))||((j==-9||j==-10)&&(i==7||i==20||i==13||i==14))){
+                if(j==-26||j==-24||j==-22||j==-21||j==-19||j==-18){
+                    if((j==-26&&(i==13||i==14))||((j==-21)&&(i==7||i==8||i==19||i==20))||((j==-19||j==-18)&&(i==7||i==20||i==13||i==14))){
                         GenerateSprite(num,i,j,0);
                     }else{
                     Instantiate(sprites[num], new Vector3(i,j,0),Quaternion.Euler(0,0,90));
                     }
-                }else if(j== -12){
+                }else if(j== -16){
                         if((i==7||i==8||i==19||i==20)){
                             GenerateSprite(num,i,j,0);
                         }else if(i==11||i==12||i==15||i==16){
