@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class generateLevel : MonoBehaviour
+public class LevelGenerator : MonoBehaviour
 {
     int[,] levelMap1 =
     {
